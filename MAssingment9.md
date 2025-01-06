@@ -1,11 +1,10 @@
 # Assignment NO. 9
 ## Task 1: Create a "CodingGita Students" database
 
+### Create a new MongoDB database called CodingGita. Add two collections:
+- `students`: Name, roll number, department, year, courses enrolled.
 
-// Create a new MongoDB database called CodingGita. Add two collections:
-
-// students: Name, roll number, department, year, courses enrolled.
-// courses: Course code, name, credits, instructor.
+```bash
 
 db.students.insertOne({
   name: "Jack",
@@ -17,10 +16,10 @@ db.students.insertOne({
   registrationDate: new Date()
 }); 
 
+```
+- `courses`: Course code, name, credits, instructor.
 
-
-
-// courses: Course code, name, credits, instructor.
+```bash
 db.courses.insertOne(
     { 
       "courseCode": "CS101", 
@@ -28,20 +27,14 @@ db.courses.insertOne(
       "credits": 3, 
       "instructor": "Prof. Sharma" ,
     registrationDate: new Date()
-    });
+    });    
+ ```
 
+Insert sample data into both collections.
+## Task 2: Perform CRUD operations
+### Add a few more students and courses to the database.
 
-
-
-//     Task 2: Perform CRUD operations
-
-// Add a few more students and courses to the database.
-// Query data based on:
-// Department (e.g., "Computer Science").
-// Year (e.g., "2").
-// Courses enrolled (e.g., "CS101").
-
-
+```bash
 db.students.insertMany([
     { 
       "name": "Jeevan",
@@ -65,10 +58,31 @@ db.students.insertMany([
       "coursesEnrolled": ["EE101", "EE102"]
     }
   ]);
+  ```
+- Query data based on:
+  - Department (e.g., "Computer Science").
+  ```bash
+  db.students.find({ "department": "Computer Science" });  
+  ```
+  - Year (e.g., "2").
+  ```bash
+  db.students.find({ "year": 2 });
+  ```
+  - Courses enrolled (e.g., "CS101").
+
+   ```bash
+    db.students.find({ "coursesEnrolled": "CS101" });
+   ```
   
+### Update the courses for a specific student (e.g., adding a new course).
 
-// Update the courses for a specific student (e.g., adding a new course).
+```bash
 db.students.updateOne({ "name": "Kiran"},{$push: {"coursesEnrolled": "CS102"}});
+```
 
-// Delete a student or course from the database.
+
+
+### Delete a student or course from the database.
+```bash
 db.students.deleteOne({ "name": "Jeevan" });
+  ```
