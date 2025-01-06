@@ -1,0 +1,58 @@
+// Task 1: Add multiple students
+// Insert at least 5 students into the students collection with unique roll numbers, names, departments, years, and subjects enrolled.
+
+
+db.students.insertMany([
+  { 
+    "name": "Jeevan",
+    "rollNumber": 101,
+    "department": "Computer Science",
+    "year": 2,
+    "coursesEnrolled": ["CS101", "CS102"]
+  },
+  { 
+    "name": "Rohit",
+    "rollNumber": 102,
+    "department": "Computer Science",
+    "year": 2,
+    "coursesEnrolled": ["CS101", "CS103"]
+  },
+  { 
+    "name": "Kiran",
+    "rollNumber": 103,
+    "department": "Electrical Engineering",
+    "year": 3,
+    "coursesEnrolled": ["EE101", "EE102"]
+  },
+  { 
+    "name": "Jack",
+    "rollNumber": 104,
+    "department": "Electrical Engineering",
+    "year": 3,
+    "coursesEnrolled": ["EE101", "EE102"]
+  },
+  { 
+    "name": "Paul",
+    "rollNumber": 105,
+    "department": "Electrical Engineering",
+    "year": 3,
+    "coursesEnrolled": ["EE101", "EE102"]
+  }
+]);
+
+
+ Task 2: Add multiple subjects
+ Insert 4 subjects into the subjects collection, each with 3 to 5 topics.
+
+db.students.updateOne(
+    { "name": "Paul" },
+    { $push: { "coursesEnrolled": "CS102", "coursesEnrolled": "CS103","coursesEnrolled": "CS104","coursesEnrolled": "CS105"} }
+  );
+  db.students.updateOne(
+    { "name": "Jack" },
+    { $push: { "coursesEnrolled": "CS102", "coursesEnrolled": "CS103","coursesEnrolled": "CS104","coursesEnrolled": "CS105"} }
+  );
+  db.students.updateOne(
+    { "name": "Kiran" },
+    { $push: { "coursesEnrolled": "CS102", "coursesEnrolled": "CS103","coursesEnrolled": "CS104","coursesEnrolled": "CS105"} }
+  );
