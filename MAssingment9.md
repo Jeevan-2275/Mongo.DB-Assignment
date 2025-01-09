@@ -34,7 +34,7 @@ Insert sample data into both collections.
 ## Task 2: Perform CRUD operations
 ### Add a few more students and courses to the database.
 
-```bash
+```
 db.students.insertMany([
     { 
       "name": "Jeevan",
@@ -61,16 +61,16 @@ db.students.insertMany([
   ```
 - Query data based on:
   - Department (e.g., "Computer Science").
-  ```bash
+  ```
   db.students.find({ "department": "Computer Science" });  
   ```
   - Year (e.g., "2").
-  ```bash
+  ```
   db.students.find({ "year": 2 });
   ```
   - Courses enrolled (e.g., "CS101").
 
-   ```bash
+   ```
     db.students.find({ "coursesEnrolled": "CS101" });
    ```
   
